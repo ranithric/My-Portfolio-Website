@@ -13,7 +13,6 @@
     <style>
         html {
             scroll-behavior: smooth;
-            /* Offsets anchor scroll destinations for fixed top navbar */
             scroll-padding-top: 65px; 
         }
 
@@ -59,7 +58,6 @@
             transition: color 0.2s ease;
         }
 
-        /* The indicator line under navigation words */
         .super-sticky-nav a::after {
             content: '';
             position: absolute;
@@ -80,7 +78,7 @@
             color: #000000 !important;
         }
 
-        /* --- FIXED LEFT SIDEBAR (No Toggle) --- */
+        /* --- FIXED LEFT SIDEBAR --- */
         .sidebar {
             position: fixed;
             top: 65px;
@@ -125,8 +123,7 @@
         /* --- PAGE LAYOUT & SIDEBAR PADDING --- */
         .container {
             max-width: 950px;
-            /* Sidebar is 260px wide + 50px padding gap = 310px left margin */
-            margin-top: 80px;
+            margin-top: 20px;
             margin-bottom: 70px;
             margin-left: 310px;
             padding: 0 40px;
@@ -138,7 +135,7 @@
 
         /* --- TYPOGRAPHY & CARDS --- */
         #home {
-            scroll-margin-top: 100px;
+            scroll-margin-top: 70px;
         }
 
         .title-text {
@@ -146,8 +143,8 @@
             font-size: 1.85rem;
             font-weight: 700;
             line-height: 1.3;
-            margin-top: 70px; /* Increased top space above title when scrolling Home */
-            margin-bottom: 8px;
+            margin-top: 20px;
+            margin-bottom: 4px;
             color: #111;
         }
 
@@ -159,7 +156,7 @@
             font-size: 0.85rem;
             color: #666;
             margin-top: 0;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
         .project-card {
@@ -213,9 +210,9 @@
             margin: 60px 0;
         }
 
-        /* Tightened dividers for profile & quote sections */
+        /* Ultra-compact divider for hero section */
         hr.tight-hr {
-            margin: 20px 0;
+            margin: 8px 0;
         }
 
         details {
@@ -316,13 +313,13 @@
             <h1 class="title-text">RANITHRI HEWASILIYAN | Portfolio</h1>
             <p class="subtitle-text">Everything about Data</p>
 
-            <div style="text-align: left; margin-top: 25px;">
+            <div style="text-align: left; margin-top: 15px;">
                 <a href="https://www.notion.so/About-Me-331099428a098011aee8fff1340a985e?source=copy_link" target="_blank">
                     <img src="https://github.com/ranithric-cyber/image-3/blob/aacc3a49cd0fb2a3be923754be31f12e688e741a/2410223.jpg?raw=true" 
-                         style="width: 100%; max-width: 80px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1);" 
+                         style="width: 100%; max-width: 75px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1);" 
                          alt="Profile">
                 </a>
-                <p style="font-size: 0.95rem; color: #666; margin-top: 10px; margin-bottom: 0;">
+                <p style="font-size: 0.9rem; color: #666; margin-top: 4px; margin-bottom: 0;">
                     <i>Want to get to know more about me? Click me!</i>
                 </p>
             </div>
@@ -330,14 +327,14 @@
             <hr class="tight-hr">
 
             <!-- About Section -->
-            <div style="padding: 10px 0; max-width: 850px; margin: auto; text-align: center;">
-                <h3 style='font-family: "Libre Baskerville", serif; font-style: italic; color: #1a1a1a; font-size: 1.6rem; line-height: 1.5; margin-top: 10px;'>
+            <div style="padding: 0; max-width: 850px; margin: auto; text-align: center;">
+                <h3 style='font-family: "Libre Baskerville", serif; font-style: italic; color: #1a1a1a; font-size: 1.5rem; line-height: 1.4; margin-top: 4px; margin-bottom: 12px;'>
                     "The goal is to turn data into information, and information into insights."
                 </h3>
-                <p style='font-weight: 400; color: #444; margin-top: 20px;'>
+                <p style='font-weight: 400; color: #444; margin-top: 10px; margin-bottom: 15px;'>
                     I am a <b>Data Analyst & Researcher</b> specializing in Business Intelligence and Data Analytics. I focus on building accurate, scalable data narratives using <b>Tableau, Power BI and Python.</b> My academic background drives me to treat every dataset as a primary source, uncovering truths that help organizations and businesses navigate complex decision making.
                 </p>
-                <div style="margin-top: 30px;">
+                <div style="margin-top: 15px;">
                     <span style="font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; border-right: 1px solid #ccc; padding-right: 18px; margin-right: 18px;">ACCURATE</span>
                     <span style="font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; border-right: 1px solid #ccc; padding-right: 18px; margin-right: 18px;">DECISIONS</span>
                     <span style="font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;">ON TIME</span>
@@ -347,7 +344,7 @@
             <hr class="tight-hr">
 
             <!-- Visualizations Section -->
-            <div id="visualizations" class="section project-card">
+            <div id="visualizations" class="section project-card" style="margin-top: 30px;">
                 <div>
                     <span class="tag">Tableau</span>
                     <span class="tag">Power BI</span>
