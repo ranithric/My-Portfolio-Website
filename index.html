@@ -193,7 +193,7 @@
             margin: 50px 0;
         }
 
-        /* --- READ MORE ACCORDION --- */
+        /* --- READ MORE / SEE MORE ACCORDION --- */
         details {
             margin: 25px 0;
             cursor: pointer;
@@ -208,6 +208,16 @@
             color: #007bff;
             outline: none;
             font-size: 1rem;
+        }
+
+        /* Hide summary button when details standard accordion is open */
+        details[open] summary {
+            display: none;
+        }
+
+        /* Keep sidebar title visible when open */
+        .sidebar-accordion[open] summary {
+            display: flex;
         }
 
         .app-btn {
@@ -344,8 +354,8 @@
                 <p>This analysis highlights purchasing patterns across product sub categories, revealing which items are frequently bought together and enabling more effective cross selling and bundling strategies. In this graph, darker shades indicate strong co-purchase behavior.</p>
                 
                 <details>
-                    <summary>Read More...</summary>
-                    <div style="margin-top: 15px;">
+                    <summary>See more...</summary>
+                    <div>
                         <p><strong>Key observations:</strong></p>
                         <ul>
                             <li>Categories like Binders, Paper, Storage, Art, Labels show consistently high interactions.</li>
@@ -367,8 +377,8 @@
                 <p>This dashboard displays the electric vehicle landscape in Washington state, USA. The data set consists of 280,000 registartions and 15 columns which is complex in terms of understanding the insights just looking at the data points in excel format. But the decision making process has been made easy with the below Power BI dashboard.</p>
                 
                 <details>
-                    <summary>Read More...</summary>
-                    <div style="margin-top: 15px;">
+                    <summary>See more...</summary>
+                    <div>
                         <p><strong>Without using filters, at a glance we can get some overall insights such as:</strong></p>
                         <ul>
                             <li>Average miles of all EVs is 107.46 - KPI Card</li>
