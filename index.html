@@ -25,10 +25,10 @@
             line-height: 1.8;
             letter-spacing: 0.2px;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden; /* Prevents horizontal scrollbar during push transition */
+            overflow-x: hidden;
         }
 
-        /* --- FLOATING NAVBAR --- */
+        /* --- FLOATING NAVBAR WITH LINE INDICATOR --- */
         .super-sticky-nav {
             position: fixed;
             top: 0;
@@ -46,17 +46,36 @@
         }
 
         .super-sticky-nav a {
+            position: relative;
             text-decoration: none;
             color: #2b2b2b !important;
             font-weight: 600;
             font-size: 13px;
             letter-spacing: 1.5px;
             font-family: 'Inter', sans-serif;
+            padding: 20px 0;
             transition: color 0.2s ease;
         }
 
-        .super-sticky-nav a:hover {
-            color: #007bff !important;
+        /* The indicator line under navigation words */
+        .super-sticky-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        .super-sticky-nav a:hover::after,
+        .super-sticky-nav a.active::after {
+            width: 100%;
+        }
+
+        .super-sticky-nav a.active {
+            color: #000000 !important;
         }
 
         /* --- FULL HEIGHT SLIDING SIDEBAR --- */
@@ -75,12 +94,10 @@
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Closed State: Hidden off-screen */
         .sidebar.closed {
             transform: translateX(-100%);
         }
 
-        /* Sidebar Toggle Button */
         .sidebar-toggle {
             position: absolute;
             top: 25px;
@@ -138,11 +155,10 @@
             max-width: 1000px;
             margin: 100px auto 60px auto;
             padding: 0 30px;
-            transform: translateX(130px); /* Offset right when sidebar is open */
+            transform: translateX(130px);
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* When sidebar is closed, shift main container back to true center */
         .container.sidebar-closed {
             transform: translateX(0);
         }
@@ -286,15 +302,16 @@
 </head>
 <body>
 
-    <div id="home"></div>
+    <!-- Target Anchors -->
+    <div id="home" class="section"></div>
 
     <!-- Floating Navbar -->
     <div class="super-sticky-nav">
-        <a href="#home">HOME</a>
-        <a href="#visualizations">VISUALIZATIONS</a>
-        <a href="#projects">ML PROJECTS</a>
-        <a href="#articles">ARTICLES</a>
-        <a href="#research">RESEARCH</a>
+        <a href="#home" class="nav-link active">HOME</a>
+        <a href="#visualizations" class="nav-link">VISUALIZATIONS</a>
+        <a href="#projects" class="nav-link">ML PROJECTS</a>
+        <a href="#articles" class="nav-link">ARTICLES</a>
+        <a href="#research" class="nav-link">RESEARCH</a>
     </div>
 
     <!-- Full-Height Sliding Sidebar -->
@@ -346,8 +363,7 @@
             <hr>
 
             <!-- Visualizations Section -->
-            <div id="visualizations"></div>
-            <div class="project-card">
+            <div id="visualizations" class="section project-card">
                 <div>
                     <span class="tag">Tableau</span>
                     <span class="tag">Power BI</span>
@@ -421,8 +437,7 @@
             </div>
 
             <!-- ML Projects Section -->
-            <div id="projects"></div>
-            <div class="project-card">
+            <div id="projects" class="section project-card">
                 <div><span class="tag">ML Projects</span></div>
                 
                 <h2 class="project-heading">RFM Analysis</h2>
@@ -439,8 +454,7 @@
             </div>
 
             <!-- Articles Section -->
-            <div id="articles"></div>
-            <div class="project-card">
+            <div id="articles" class="section project-card">
                 <div>
                     <span class="tag">Articles</span>
                     <span class="tag">Analysis</span>
@@ -485,8 +499,7 @@
             </div>
 
             <!-- Research Section -->
-            <div id="research"></div>
-            <div class="project-card">
+            <div id="research" class="section project-card">
                 <div>
                     <span class="tag">Research</span>
                     <span class="tag">Python</span>
@@ -516,8 +529,9 @@
         </div>
     </div>
 
-    <!-- Toggle Script -->
+    <!-- Scripts -->
     <script>
+        // Sidebar Toggle Script
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebarToggle');
         const mainContainer = document.getElementById('mainContainer');
@@ -526,6 +540,27 @@
             sidebar.classList.toggle('closed');
             mainContainer.classList.toggle('sidebar-closed');
             sidebarToggle.textContent = sidebar.classList.contains('closed') ? '▶' : '◀';
+        });
+
+        // Navigation Line Indicator Active State Script
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
