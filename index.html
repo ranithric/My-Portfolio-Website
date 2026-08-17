@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
         html {
@@ -19,8 +19,11 @@
             margin: 0;
             padding: 0;
             background-color: #faf9f6; /* Off-white / Eggshell */
-            color: #1a1a1a;
+            color: #2b2b2b;
             font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            line-height: 1.8;
+            letter-spacing: 0.2px;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -30,24 +33,24 @@
             top: 0;
             left: 0;
             width: 100vw;
-            height: 60px;
-            background-color: #f8f9fa;
+            height: 65px;
+            background-color: #ffffff;
             z-index: 999999;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
-            box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
-            border-bottom: 1px solid #e0e0e0;
+            gap: 45px;
+            box-shadow: 0px 2px 12px rgba(0,0,0,0.04);
+            border-bottom: 1px solid #eaeaea;
         }
 
         .super-sticky-nav a {
             text-decoration: none;
-            color: #1a1a1a !important;
-            font-weight: bold;
-            font-size: 14px;
-            letter-spacing: 1px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #2b2b2b !important;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            font-family: 'Inter', sans-serif;
             transition: color 0.2s ease;
         }
 
@@ -57,33 +60,39 @@
 
         /* --- PAGE LAYOUT --- */
         .container {
-            max-width: 1100px;
-            margin: 80px auto 40px auto;
-            padding: 0 20px;
+            max-width: 1200px;
+            margin: 100px auto 60px auto;
+            padding: 0 30px;
             display: flex;
-            gap: 40px;
+            gap: 60px; /* Increased separation between sidebar & content */
         }
 
+        /* Expanded Sidebar Width */
         .sidebar {
-            width: 220px;
+            width: 280px; 
             flex-shrink: 0;
+            padding-right: 20px;
         }
 
         .sidebar-title {
             font-family: 'Inter', sans-serif;
-            font-weight: 300;
+            font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-item {
+            margin-bottom: 16px;
+            word-break: break-word; /* Prevents text overflow */
         }
 
         .sidebar a {
             text-decoration: none;
-            color: #1a1a1a;
-            display: block;
-            margin-bottom: 10px;
+            color: #2b2b2b;
+            font-weight: 400;
             transition: color 0.2s ease;
         }
 
@@ -98,65 +107,90 @@
         /* --- TYPOGRAPHY & CARDS --- */
         .title-text {
             font-family: 'Libre Baskerville', serif;
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 5px;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            color: #111;
         }
 
         .subtitle-text {
             font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            letter-spacing: 2px;
+            font-weight: 400;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            color: #555;
+            font-size: 0.85rem;
+            color: #666;
             margin-top: 0;
+            margin-bottom: 30px;
         }
 
         .project-card {
             border-top: 1.5px solid #1a1a1a;
-            padding-top: 30px;
-            padding-bottom: 40px;
-            margin-bottom: 30px;
+            padding-top: 40px;
+            padding-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .project-heading {
             font-family: 'Libre Baskerville', serif;
-            font-size: 1.75rem;
-            color: #1a1a1a;
-            margin-top: 15px;
-            margin-bottom: 8px;
+            font-size: 1.85rem;
+            line-height: 1.35;
+            color: #111;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin-bottom: 25px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
         }
 
         .tag {
             font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 600;
-            border: 1px solid #1a1a1a;
-            padding: 2px 8px;
-            margin-right: 5px;
+            letter-spacing: 1px;
+            border: 1px solid #2b2b2b;
+            padding: 3px 10px;
+            margin-right: 8px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             display: inline-block;
+            border-radius: 2px;
         }
 
         hr {
             border: 0;
             height: 1px;
-            background: #e0e0e0;
-            margin: 40px 0;
+            background: #e2e2e2;
+            margin: 50px 0;
         }
 
         /* --- READ MORE ACCORDION --- */
         details {
-            margin: 15px 0;
+            margin: 25px 0;
             cursor: pointer;
+            background: #ffffff;
+            padding: 15px 20px;
+            border-radius: 6px;
+            border: 1px solid #eef0f2;
         }
 
         summary {
             font-weight: 600;
             color: #007bff;
             outline: none;
-            margin-bottom: 10px;
+            font-size: 1rem;
         }
 
         .app-btn {
@@ -164,9 +198,10 @@
             text-decoration: none;
             background-color: #ff4b4b;
             color: white !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             transition: opacity 0.2s ease;
         }
 
@@ -176,30 +211,33 @@
 
         .clickable-img {
             width: 100%;
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            max-width: 320px;
+            border-radius: 8px;
+            box-shadow: 0px 6px 18px rgba(0,0,0,0.07);
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .clickable-img:hover {
             transform: scale(1.02);
-            opacity: 0.9;
+            opacity: 0.92;
         }
 
         /* --- RESPONSIVE MOBILE LAYOUT --- */
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .container {
                 flex-direction: column;
+                gap: 30px;
+                padding: 0 20px;
             }
             .sidebar {
                 width: 100%;
+                padding-right: 0;
                 border-bottom: 1px solid #e0e0e0;
-                padding-bottom: 20px;
+                padding-bottom: 30px;
             }
             .super-sticky-nav {
                 gap: 15px;
-                font-size: 12px;
+                font-size: 11px;
             }
         }
     </style>
@@ -221,12 +259,12 @@
     <!-- Main Container -->
     <div class="container">
 
-        <!-- Sidebar -->
+        <!-- Expanded Sidebar -->
         <div class="sidebar">
             <p class="sidebar-title">Get in Touch</p>
-            <p>🔗 ranithric@gmail.com</p>
-            <p>🔗 <a href="https://www.linkedin.com/in/ranithri-hewasiliyan-10036117b" target="_blank">LinkedIn</a></p>
-            <p>🔗 <a href="https://github.com/ranithric" target="_blank">GitHub</a></p>
+            <div class="sidebar-item">🔗 ranithric@gmail.com</div>
+            <div class="sidebar-item">🔗 <a href="https://www.linkedin.com/in/ranithri-hewasiliyan-10036117b" target="_blank">LinkedIn</a></div>
+            <div class="sidebar-item">🔗 <a href="https://github.com/ranithric" target="_blank">GitHub</a></div>
         </div>
 
         <!-- Content Area -->
@@ -236,13 +274,13 @@
             <h1 class="title-text">RANITHRI HEWASILIYAN | Portfolio</h1>
             <p class="subtitle-text">Everything about Data</p>
 
-            <div style="text-align: left; margin-top: 20px;">
+            <div style="text-align: left; margin-top: 25px;">
                 <a href="https://www.notion.so/About-Me-331099428a098011aee8fff1340a985e?source=copy_link" target="_blank">
                     <img src="https://github.com/ranithric-cyber/image-3/blob/aacc3a49cd0fb2a3be923754be31f12e688e741a/2410223.jpg?raw=true" 
-                         style="width: 100%; max-width: 70px; border-radius: 10px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1);" 
+                         style="width: 100%; max-width: 80px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1);" 
                          alt="Profile">
                 </a>
-                <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+                <p style="font-size: 0.95rem; color: #666; margin-top: 12px;">
                     <i>Want to get to know more about me? Click me!</i>
                 </p>
             </div>
@@ -250,17 +288,17 @@
             <hr>
 
             <!-- About Section -->
-            <div style="padding: 20px 0; max-width: 800px; margin: auto; text-align: center;">
-                <h3 style='font-family: "Libre Baskerville", serif; font-style: italic; color: #1a1a1a; font-size: 1.5rem;'>
+            <div style="padding: 20px 0; max-width: 850px; margin: auto; text-align: center;">
+                <h3 style='font-family: "Libre Baskerville", serif; font-style: italic; color: #1a1a1a; font-size: 1.6rem; line-height: 1.5;'>
                     "The goal is to turn data into information, and information into insights."
                 </h3>
-                <p style='font-weight: 300; line-height: 1.8; color: #444; margin-top: 20px;'>
+                <p style='font-weight: 400; color: #444; margin-top: 25px;'>
                     I am a <b>Data Analyst & Researcher</b> specializing in Business Intelligence and Data Analytics. I focus on building accurate, scalable data narratives using <b>Tableau, Power BI and Python.</b> My academic background drives me to treat every dataset as a primary source, uncovering truths that help organizations and businesses navigate complex decision making.
                 </p>
-                <div style="margin-top: 20px;">
-                    <span style="font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; border-right: 1px solid #ccc; padding-right: 15px; margin-right: 15px;">ACCURATE</span>
-                    <span style="font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; border-right: 1px solid #ccc; padding-right: 15px; margin-right: 15px;">DECISIONS</span>
-                    <span style="font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">ON TIME</span>
+                <div style="margin-top: 30px;">
+                    <span style="font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; border-right: 1px solid #ccc; padding-right: 18px; margin-right: 18px;">ACCURATE</span>
+                    <span style="font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; border-right: 1px solid #ccc; padding-right: 18px; margin-right: 18px;">DECISIONS</span>
+                    <span style="font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;">ON TIME</span>
                 </div>
             </div>
 
@@ -279,58 +317,62 @@
                 <p>This Rosling graph illustrates a negative correlation between fertility rate and life expectancy, where countries with longer life expectancy typically exhibit lower fertility rates. Just click the right arrow button to see how the countries with higher life expectancy tend to have lower fertility rates.</p>
                 <iframe src="https://public.tableau.com/views/QuestionBRoslingGraph/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" width="100%" height="500" frameborder="0"></iframe>
 
-                <h2 class="project-heading" style="margin-top: 40px;">What if pizza sales ??</h2>
+                <h2 class="project-heading" style="margin-top: 50px;">What if pizza sales ??</h2>
                 <p>By simulating different scenarios of growth and churn rates, this analysis helps identify potential risks and opportunities, allowing the business to optimize sales strategies and improve customer retention. Just check out adjusting two sliders to see how the sales change with different growth and churn rates.</p>
                 <iframe src="https://public.tableau.com/views/QuestionEWhatifAnalysis/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" width="100%" height="500" frameborder="0"></iframe>
 
-                <h2 class="project-heading" style="margin-top: 40px;">Market Basket Analysis for Global Superstore</h2>
+                <h2 class="project-heading" style="margin-top: 50px;">Market Basket Analysis for Global Superstore</h2>
                 <p>This analysis highlights purchasing patterns across product sub categories, revealing which items are frequently bought together and enabling more effective cross selling and bundling strategies. In this graph, darker shades indicate strong co-purchase behavior.</p>
                 
                 <details>
                     <summary>Read More...</summary>
-                    <p><strong>Key observations:</strong></p>
-                    <ul>
-                        <li>Categories like Binders, Paper, Storage, Art, Labels show consistently high interactions.</li>
-                        <li>Categories like Tables, Chairs, Furnishings generally show lower co-occurrence values.</li>
-                    </ul>
-                    <p><strong>Practical Actions:</strong></p>
-                    <ul>
-                        <li>Bundle Binders + Storage + Paper</li>
-                        <li>Recommend Binders and Storage when Art supplies are purchased</li>
-                        <li>Create discounts for office kits</li>
-                        <li>Improve cross-selling for low performing combinations like Tables</li>
-                    </ul>
+                    <div style="margin-top: 15px;">
+                        <p><strong>Key observations:</strong></p>
+                        <ul>
+                            <li>Categories like Binders, Paper, Storage, Art, Labels show consistently high interactions.</li>
+                            <li>Categories like Tables, Chairs, Furnishings generally show lower co-occurrence values.</li>
+                        </ul>
+                        <p><strong>Practical Actions:</strong></p>
+                        <ul>
+                            <li>Bundle Binders + Storage + Paper</li>
+                            <li>Recommend Binders and Storage when Art supplies are purchased</li>
+                            <li>Create discounts for office kits</li>
+                            <li>Improve cross-selling for low performing combinations like Tables</li>
+                        </ul>
+                    </div>
                 </details>
 
                 <iframe src="https://public.tableau.com/views/QuestionFMarketBasketAnalysis/Sheet3?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" width="100%" height="500" frameborder="0"></iframe>
 
-                <h2 class="project-heading" style="margin-top: 40px;">Story telling with Data</h2>
+                <h2 class="project-heading" style="margin-top: 50px;">Story telling with Data</h2>
                 <p>This dashboard displays the electric vehicle landscape in Washington state, USA. The data set consists of 280,000 registartions and 15 columns which is complex in terms of understanding the insights just looking at the data points in excel format. But the decision making process has been made easy with the below Power BI dashboard.</p>
                 
                 <details>
                     <summary>Read More...</summary>
-                    <p><strong>Without using filters, at a glance we can get some overall insights such as:</strong></p>
-                    <ul>
-                        <li>Average miles of all EVs is 107.46 - KPI Card</li>
-                        <li>Total EVs in the data set is 280,000 - KPI Card</li>
-                        <li>Tesla is the most popular brand with 114,000 EVs - Bar chart</li>
-                        <li>In the year 2023 has the highest number of EV registrations - Line chart</li>
-                        <li>Battery electric vehicles (BEVs) are more popular (80%) than plug-in hybrid electric vehicles (PHEVs) (20%) - Pie chart</li>
-                        <li>Battery technology has been improved over the years as there are vehicles with more than 300 miles of range in the year 2020 - scatter plot</li>
-                        <li>Top 10 counties of the state which are using EVs are King (highest), Snohomish, Pierce, Clark, Thurston, Kitsap, Spokane, Whatcom, Skagit and Benton - Treemap</li>
-                    </ul>
-                    <p><strong>Using filters which are "Brand", "Model", "Model Year" and tool tips for indepth insights:</strong></p>
-                    <ul>
-                        <li>As per the "at a glance insights" first I have selected Tesla Model S which has the highest number of registrations and much longer range compared to other EVs in the market.</li>
-                        <li>Tesla Model S has the average miles of 228 which exceeds the overall average miles of all EVs in the data set which is 107.46 and it has 7734 EVs registered.</li>
-                        <li>But Tesla Model S has the downward trend in market growth over a decade while having highest number (930) in 2015 and lowest number (80) in 2025. but the overall trend in Tesla brand has an upward trend.</li>
-                        <li>This model has Battery electric vehicles (BEVs) only and the battery technology has been improved significantly over the years and by 2020 it has range of more than 300 miles.</li>
-                        <li>King county has the highest number of Tesla Model S registrations with 3726 EVs and the Skagit county has the lower number of registrations with 113 EVs. further counties can be drilled down to cities to get more insights on the distribution of EVs in the state.</li>
-                    </ul>
+                    <div style="margin-top: 15px;">
+                        <p><strong>Without using filters, at a glance we can get some overall insights such as:</strong></p>
+                        <ul>
+                            <li>Average miles of all EVs is 107.46 - KPI Card</li>
+                            <li>Total EVs in the data set is 280,000 - KPI Card</li>
+                            <li>Tesla is the most popular brand with 114,000 EVs - Bar chart</li>
+                            <li>In the year 2023 has the highest number of EV registrations - Line chart</li>
+                            <li>Battery electric vehicles (BEVs) are more popular (80%) than plug-in hybrid electric vehicles (PHEVs) (20%) - Pie chart</li>
+                            <li>Battery technology has been improved over the years as there are vehicles with more than 300 miles of range in the year 2020 - scatter plot</li>
+                            <li>Top 10 counties of the state which are using EVs are King (highest), Snohomish, Pierce, Clark, Thurston, Kitsap, Spokane, Whatcom, Skagit and Benton - Treemap</li>
+                        </ul>
+                        <p><strong>Using filters which are "Brand", "Model", "Model Year" and tool tips for indepth insights:</strong></p>
+                        <ul>
+                            <li>As per the "at a glance insights" first I have selected Tesla Model S which has the highest number of registrations and much longer range compared to other EVs in the market.</li>
+                            <li>Tesla Model S has the average miles of 228 which exceeds the overall average miles of all EVs in the data set which is 107.46 and it has 7734 EVs registered.</li>
+                            <li>But Tesla Model S has the downward trend in market growth over a decade while having highest number (930) in 2015 and lowest number (80) in 2025. but the overall trend in Tesla brand has an upward trend.</li>
+                            <li>This model has Battery electric vehicles (BEVs) only and the battery technology has been improved significantly over the years and by 2020 it has range of more than 300 miles.</li>
+                            <li>King county has the highest number of Tesla Model S registrations with 3726 EVs and the Skagit county has the lower number of registrations with 113 EVs. further counties can be drilled down to cities to get more insights on the distribution of EVs in the state.</li>
+                        </ul>
+                    </div>
                 </details>
 
-                <div style="text-align: center; margin-top: 20px;">
-                    <video width="100%" style="max-width: 700px;" controls>
+                <div style="text-align: center; margin-top: 30px;">
+                    <video width="100%" style="max-width: 750px; border-radius: 8px;" controls>
                         <source src="https://github.com/ranithric-cyber/image-1/raw/refs/heads/main/Go%20green.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -344,13 +386,13 @@
                 
                 <h2 class="project-heading">RFM Analysis</h2>
                 <p>Customer segmentation based on their purchasing behavior</p>
-                <div style="background-color: #f0f2f6; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 30px;">
+                <div style="background-color: #f4f5f7; padding: 25px; border-radius: 8px; text-align: center; margin-bottom: 35px;">
                     <a href="https://rfm-analysis-by-ranithri.streamlit.app/" target="_blank" class="app-btn">Open app ↗</a>
                 </div>
 
                 <h2 class="project-heading">Tea Crop Prediction</h2>
                 <p>Tea crop prediction based on historical data and environmental factors - COMING SOON....</p>
-                <div style="background-color: #f0f2f6; padding: 20px; border-radius: 10px; text-align: center;">
+                <div style="background-color: #f4f5f7; padding: 25px; border-radius: 8px; text-align: center;">
                     <a href="https://tea-crop-by-ranithri.streamlit.app/" target="_blank" class="app-btn">Open app ↗</a>
                 </div>
             </div>
@@ -366,7 +408,7 @@
 
                 <h2 class="project-heading">The Psychology of Data Visualization</h2>
                 <p>How many variables can a human brain actually process in one dashboard?</p>
-                <div style="margin-bottom: 30px;">
+                <div style="margin-bottom: 40px;">
                     <a href="https://www.notion.so/Article-Draft-Artificial-Intelligence-005e7199b7354aae85865c954b5913d7?source=copy_link" target="_blank">
                         <img src="https://github.com/ranithric-cyber/image-1/blob/d4b3583844173ae6758b12c90466abc9b6e93adf/The%20Psychology%20of%20Data%20Visualization.jpg?raw=true" class="clickable-img" alt="Article Preview">
                     </a>
@@ -375,7 +417,7 @@
 
                 <h2 class="project-heading">Designing for Decisions</h2>
                 <p>An EV Population Analysis Backed by Data Visualization Theory</p>
-                <div style="margin-bottom: 30px;">
+                <div style="margin-bottom: 40px;">
                     <a href="https://www.notion.so/331099428a0980de920deb75ba72f226?source=copy_link" target="_blank">
                         <img src="https://github.com/ranithric-cyber/image-3/blob/9ddd90849a358d7600abd0c8d45bfa7cd01debcc/photo-1704340142770-b52988e5b6eb.jpg?raw=true" class="clickable-img" alt="Article Preview">
                     </a>
@@ -384,7 +426,7 @@
 
                 <h2 class="project-heading">Data Visualization in Different Sectors</h2>
                 <p>A Finance data analysis using SQL and Power BI</p>
-                <div style="margin-bottom: 30px;">
+                <div style="margin-bottom: 40px;">
                     <a href="https://app.notion.com/p/COMING-SOON-399099428a09804e8c5ffe8fb38cfea1" target="_blank">
                         <img src="https://github.com/ranithric-cyber/image-3/blob/3c56ce265f347697e0238986ca4ea370613a245b/finance%20data.jpg?raw=true" class="clickable-img" alt="Article Preview">
                     </a>
@@ -423,10 +465,10 @@
             <hr>
 
             <!-- Footers -->
-            <div style="text-align: center; color: #888888; padding-top: 10px;">
+            <div style="text-align: center; color: #777; padding-top: 10px;">
                 Thanks for reading and feel free to reach out to me!
             </div>
-            <div style="text-align: center; color: #888888; padding-top: 10px; margin-bottom: 40px;">
+            <div style="text-align: center; color: #777; padding-top: 10px; margin-bottom: 50px;">
                 Copyright 2026 • All rights reserved!
             </div>
 
