@@ -91,7 +91,7 @@
             border-right: 1px solid #eaeaea;
             box-shadow: 4px 0px 12px rgba(0,0,0,0.03);
             z-index: 99999;
-            padding: 40px 25px;
+            padding: 50px 30px; /* Increased internal sidebar padding */
             box-sizing: border-box;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -155,9 +155,9 @@
         /* --- PAGE LAYOUT & PUSH TRANSITION --- */
         .container {
             max-width: 1000px;
-            margin: 100px auto 60px auto;
-            padding: 0 30px;
-            transform: translateX(130px);
+            margin: 110px auto 70px auto;
+            padding: 0 50px; /* Increased inner content padding */
+            transform: translateX(170px); /* Increased offset to create extra padding/gap from the sidebar */
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -192,9 +192,9 @@
 
         .project-card {
             border-top: 1.5px solid #1a1a1a;
-            padding-top: 40px;
-            padding-bottom: 50px;
-            margin-bottom: 40px;
+            padding-top: 60px; /* Increased top padding */
+            padding-bottom: 70px; /* Increased bottom padding */
+            margin-bottom: 50px; /* Increased margin spacing */
         }
 
         .project-heading {
@@ -202,8 +202,8 @@
             font-size: 1.85rem;
             line-height: 1.35;
             color: #111;
-            margin-top: 25px;
-            margin-bottom: 15px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
         p {
@@ -226,7 +226,7 @@
             font-weight: 600;
             letter-spacing: 1px;
             border: 1px solid #2b2b2b;
-            padding: 3px 10px;
+            padding: 4px 12px;
             margin-right: 8px;
             margin-bottom: 8px;
             text-transform: uppercase;
@@ -238,14 +238,14 @@
             border: 0;
             height: 1px;
             background: #e2e2e2;
-            margin: 50px 0;
+            margin: 60px 0; /* Increased divider spacing */
         }
 
         details {
-            margin: 25px 0;
+            margin: 30px 0;
             cursor: pointer;
             background: #ffffff;
-            padding: 15px 20px;
+            padding: 20px 25px; /* Increased internal details padding */
             border-radius: 6px;
             border: 1px solid #eef0f2;
         }
@@ -348,7 +348,7 @@
             <hr>
 
             <!-- About Section -->
-            <div style="padding: 20px 0; max-width: 850px; margin: auto; text-align: center;">
+            <div style="padding: 30px 0; max-width: 850px; margin: auto; text-align: center;">
                 <h3 style='font-family: "Libre Baskerville", serif; font-style: italic; color: #1a1a1a; font-size: 1.6rem; line-height: 1.5;'>
                     "The goal is to turn data into information, and information into insights."
                 </h3>
@@ -376,11 +376,11 @@
                 <p>This Rosling graph illustrates a negative correlation between fertility rate and life expectancy, where countries with longer life expectancy typically exhibit lower fertility rates. Just click the right arrow button to see how the countries with higher life expectancy tend to have lower fertility rates.</p>
                 <iframe src="https://public.tableau.com/views/QuestionBRoslingGraph/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" width="100%" height="500" frameborder="0"></iframe>
 
-                <h2 class="project-heading" style="margin-top: 50px;">What if pizza sales ??</h2>
+                <h2 class="project-heading" style="margin-top: 60px;">What if pizza sales ??</h2>
                 <p>By simulating different scenarios of growth and churn rates, this analysis helps identify potential risks and opportunities, allowing the business to optimize sales strategies and improve customer retention. Just check out adjusting two sliders to see how the sales change with different growth and churn rates.</p>
                 <iframe src="https://public.tableau.com/views/QuestionEWhatifAnalysis/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" width="100%" height="500" frameborder="0"></iframe>
 
-                <h2 class="project-heading" style="margin-top: 50px;">Market Basket Analysis for Global Superstore</h2>
+                <h2 class="project-heading" style="margin-top: 60px;">Market Basket Analysis for Global Superstore</h2>
                 <p>This analysis highlights purchasing patterns across product sub categories, revealing which items are frequently bought together and enabling more effective cross selling and bundling strategies. In this graph, darker shades indicate strong co-purchase behavior.</p>
                 
                 <details>
@@ -403,7 +403,7 @@
 
                 <iframe src="https://public.tableau.com/views/QuestionFMarketBasketAnalysis/Sheet3?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" width="100%" height="500" frameborder="0"></iframe>
 
-                <h2 class="project-heading" style="margin-top: 50px;">Story telling with Data</h2>
+                <h2 class="project-heading" style="margin-top: 60px;">Story telling with Data</h2>
                 <p>This dashboard displays the electric vehicle landscape in Washington state, USA. The data set consists of 280,000 registartions and 15 columns which is complex in terms of understanding the insights just looking at the data points in excel format. But the decision making process has been made easy with the below Power BI dashboard.</p>
                 
                 <details>
@@ -444,13 +444,13 @@
                 
                 <h2 class="project-heading">RFM Analysis</h2>
                 <p>Customer segmentation based on their purchasing behavior</p>
-                <div style="background-color: #f4f5f7; padding: 25px; border-radius: 8px; text-align: center; margin-bottom: 35px;">
+                <div style="background-color: #f4f5f7; padding: 30px; border-radius: 8px; text-align: center; margin-bottom: 40px;">
                     <a href="https://rfm-analysis-by-ranithri.streamlit.app/" target="_blank" class="app-btn">Open app ↗</a>
                 </div>
 
                 <h2 class="project-heading">Tea Crop Prediction</h2>
                 <p>Tea crop prediction based on historical data and environmental factors - COMING SOON....</p>
-                <div style="background-color: #f4f5f7; padding: 25px; border-radius: 8px; text-align: center;">
+                <div style="background-color: #f4f5f7; padding: 30px; border-radius: 8px; text-align: center;">
                     <a href="https://tea-crop-by-ranithri.streamlit.app/" target="_blank" class="app-btn">Open app ↗</a>
                 </div>
             </div>
@@ -465,7 +465,7 @@
 
                 <h2 class="project-heading">The Psychology of Data Visualization</h2>
                 <p>How many variables can a human brain actually process in one dashboard?</p>
-                <div style="margin-bottom: 40px;">
+                <div style="margin-bottom: 45px;">
                     <a href="https://www.notion.so/Article-Draft-Artificial-Intelligence-005e7199b7354aae85865c954b5913d7?source=copy_link" target="_blank">
                         <img src="https://github.com/ranithric-cyber/image-1/blob/d4b3583844173ae6758b12c90466abc9b6e93adf/The%20Psychology%20of%20Data%20Visualization.jpg?raw=true" class="clickable-img" alt="Article Preview">
                     </a>
@@ -474,7 +474,7 @@
 
                 <h2 class="project-heading">Designing for Decisions</h2>
                 <p>An EV Population Analysis Backed by Data Visualization Theory</p>
-                <div style="margin-bottom: 40px;">
+                <div style="margin-bottom: 45px;">
                     <a href="https://www.notion.so/331099428a0980de920deb75ba72f226?source=copy_link" target="_blank">
                         <img src="https://github.com/ranithric-cyber/image-3/blob/9ddd90849a358d7600abd0c8d45bfa7cd01debcc/photo-1704340142770-b52988e5b6eb.jpg?raw=true" class="clickable-img" alt="Article Preview">
                     </a>
@@ -483,7 +483,7 @@
 
                 <h2 class="project-heading">Data Visualization in Different Sectors</h2>
                 <p>A Finance data analysis using SQL and Power BI</p>
-                <div style="margin-bottom: 40px;">
+                <div style="margin-bottom: 45px;">
                     <a href="https://app.notion.com/p/COMING-SOON-399099428a09804e8c5ffe8fb38cfea1" target="_blank">
                         <img src="https://github.com/ranithric-cyber/image-3/blob/3c56ce265f347697e0238986ca4ea370613a245b/finance%20data.jpg?raw=true" class="clickable-img" alt="Article Preview">
                     </a>
@@ -552,7 +552,6 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                // Changed from -120 to -66 to match the exact navbar intersection padding
                 if (window.scrollY >= sectionTop - 66) { 
                     current = section.getAttribute('id');
                 }
