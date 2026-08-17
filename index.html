@@ -25,6 +25,7 @@
             line-height: 1.8;
             letter-spacing: 0.2px;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* Prevents horizontal scrollbar during push transition */
         }
 
         /* --- FLOATING NAVBAR --- */
@@ -74,12 +75,12 @@
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Hidden State: Slides to the left off-screen */
+        /* Closed State: Hidden off-screen */
         .sidebar.closed {
             transform: translateX(-100%);
         }
 
-        /* Sidebar Toggle Button on Left Edge */
+        /* Sidebar Toggle Button */
         .sidebar-toggle {
             position: absolute;
             top: 25px;
@@ -132,12 +133,18 @@
             color: #007bff;
         }
 
-        /* --- PAGE LAYOUT --- */
+        /* --- PAGE LAYOUT & PUSH TRANSITION --- */
         .container {
             max-width: 1000px;
             margin: 100px auto 60px auto;
             padding: 0 30px;
-            transition: margin-left 0.3s ease;
+            transform: translateX(130px); /* Offset right when sidebar is open */
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* When sidebar is closed, shift main container back to true center */
+        .container.sidebar-closed {
+            transform: translateX(0);
         }
 
         .main-content {
@@ -216,7 +223,6 @@
             margin: 50px 0;
         }
 
-        /* --- READ MORE / SEE MORE ACCORDION --- */
         details {
             margin: 25px 0;
             cursor: pointer;
@@ -266,9 +272,9 @@
             opacity: 0.92;
         }
 
-        /* --- RESPONSIVE MOBILE LAYOUT --- */
         @media (max-width: 850px) {
             .container {
+                transform: translateX(0) !important;
                 padding: 0 20px;
             }
             .super-sticky-nav {
@@ -280,7 +286,6 @@
 </head>
 <body>
 
-    <!-- Anchor for Home -->
     <div id="home"></div>
 
     <!-- Floating Navbar -->
@@ -294,7 +299,6 @@
 
     <!-- Full-Height Sliding Sidebar -->
     <div class="sidebar" id="sidebar">
-        <!-- Arrow toggle tab sticking out of the right side -->
         <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">◀</button>
         
         <div class="sidebar-title">Get in Touch</div>
@@ -304,9 +308,7 @@
     </div>
 
     <!-- Main Container -->
-    <div class="container">
-
-        <!-- Content Area -->
+    <div class="container" id="mainContainer">
         <div class="main-content">
 
             <!-- Hero Section -->
@@ -518,9 +520,11 @@
     <script>
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebarToggle');
+        const mainContainer = document.getElementById('mainContainer');
 
         sidebarToggle.addEventListener('click', () => {
             sidebar.classList.toggle('closed');
+            mainContainer.classList.toggle('sidebar-closed');
             sidebarToggle.textContent = sidebar.classList.contains('closed') ? '▶' : '◀';
         });
     </script>
