@@ -13,6 +13,8 @@
     <style>
         html {
             scroll-behavior: smooth;
+            /* Offsets the anchor scroll destination by the exact height of the fixed navbar */
+            scroll-padding-top: 65px; 
         }
 
         body {
@@ -550,7 +552,8 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 120) {
+                // Changed from -120 to -66 to match the exact navbar intersection padding
+                if (window.scrollY >= sectionTop - 66) { 
                     current = section.getAttribute('id');
                 }
             });
