@@ -110,21 +110,25 @@
             margin-bottom: 20px;
         }
 
-        .sidebar-item {
-            text-decoration: none;
+       .sidebar-item {
             color: #2b2b2b;
             margin-top: 14px;
             margin-bottom: 14px;
             word-break: break-word;
-            font-size: 1rem; /* Targets both plain text and links inside sidebar items */
+            font-size: 1rem; /* Set to 0.85rem if you want the smaller font size */
             font-weight: 600;
+        }
+
+        /* Add this to remove underlines and keep link colors matching */
+        .sidebar-item a {
+            text-decoration: none;
+            color: inherit;
             transition: color 0.2s ease;
         }
 
-        .sidebar a:hover {
-            color: #007bff;
+        .sidebar-item a:hover {
+            color: #007bff; /* Optional: subtle hover color */
         }
-
         /* --- PAGE LAYOUT & SIDEBAR PADDING --- */
         .container {
             max-width: 950px;
