@@ -94,10 +94,10 @@
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        /* Highlight animation when bottom arrow is clicked or hovered */
+        /* Highlight animation when arrow is clicked */
         .sidebar.highlight-sidebar {
             border-right: 2px solid #007bff;
-            box-shadow: 6px 0px 20px rgba(0, 123, 255, 0.2);
+            box-shadow: 6px 0px 20px rgba(0, 123, 255, 0.25);
         }
 
         .sidebar-title {
@@ -270,51 +270,39 @@
             opacity: 0.92;
         }
 
-        /* --- FANCY ARROW & CONTACT DIRECTIVE --- */
+        /* --- CURLY ARROW SECTION --- */
         .reach-out-container {
             text-align: center;
-            color: #555;
+            color: #444;
             padding-top: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
         }
 
-        .fancy-arrow-btn {
+        .curly-arrow-btn {
             background: none;
             border: none;
             cursor: pointer;
             outline: none;
-            padding: 5px;
+            padding: 0;
+            margin-top: 5px;
             transition: transform 0.2s ease;
         }
 
-        .fancy-arrow-btn:hover {
-            transform: translateY(3px);
+        .curly-arrow-btn:hover {
+            transform: scale(1.1) rotate(-5deg);
         }
 
-        .fancy-arrow-svg {
-            width: 32px;
-            height: 32px;
-            stroke: #007bff;
+        .curly-arrow-svg {
+            width: 65px;
+            height: 65px;
+            stroke: #2b2b2b;
             fill: none;
-            stroke-width: 2;
+            stroke-width: 4;
             stroke-linecap: round;
             stroke-linejoin: round;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(6px);
-            }
-            60% {
-                transform: translateY(3px);
-            }
         }
 
         @media (max-width: 900px) {
@@ -555,9 +543,11 @@
             <!-- Footers -->
             <div class="reach-out-container">
                 <div>Thanks for reading and feel free to reach out to me!</div>
-                <button class="fancy-arrow-btn" onclick="focusContact()" title="Get in touch details in sidebar">
-                    <svg class="fancy-arrow-svg" viewBox="0 0 24 24">
-                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                <button class="curly-arrow-btn" onclick="focusContact()" title="Click to locate contact details">
+                    <!-- Custom SVG matching the curly/swirly arrow style -->
+                    <svg class="curly-arrow-svg" viewBox="0 0 100 100">
+                        <path d="M 75,20 C 75,60 30,70 35,45 C 38,25 65,30 55,60 C 45,85 20,70 15,65" />
+                        <path d="M 28,73 L 15,65 L 18,50" />
                     </svg>
                 </button>
             </div>
