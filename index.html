@@ -91,6 +91,13 @@
             z-index: 99999;
             padding: 50px 30px;
             box-sizing: border-box;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Highlight animation when bottom arrow is clicked or hovered */
+        .sidebar.highlight-sidebar {
+            border-right: 2px solid #007bff;
+            box-shadow: 6px 0px 20px rgba(0, 123, 255, 0.2);
         }
 
         .sidebar-title {
@@ -123,7 +130,7 @@
         /* --- PAGE LAYOUT & SIDEBAR PADDING --- */
         .container {
             max-width: 950px;
-            margin-top: 90px; /* Keeps main title fully clear below fixed navbar */
+            margin-top: 90px;
             margin-bottom: 70px;
             margin-left: 300px;
             padding: 0 40px;
@@ -261,6 +268,53 @@
         .clickable-img:hover {
             transform: scale(1.02);
             opacity: 0.92;
+        }
+
+        /* --- FANCY ARROW & CONTACT DIRECTIVE --- */
+        .reach-out-container {
+            text-align: center;
+            color: #555;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fancy-arrow-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            padding: 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .fancy-arrow-btn:hover {
+            transform: translateY(3px);
+        }
+
+        .fancy-arrow-svg {
+            width: 32px;
+            height: 32px;
+            stroke: #007bff;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(6px);
+            }
+            60% {
+                transform: translateY(3px);
+            }
         }
 
         @media (max-width: 900px) {
@@ -499,9 +553,15 @@
             <hr>
 
             <!-- Footers -->
-            <div style="text-align: center; color: #777; padding-top: 10px;">
-                Thanks for reading and feel free to reach out to me!
+            <div class="reach-out-container">
+                <div>Thanks for reading and feel free to reach out to me!</div>
+                <button class="fancy-arrow-btn" onclick="focusContact()" title="Get in touch details in sidebar">
+                    <svg class="fancy-arrow-svg" viewBox="0 0 24 24">
+                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                    </svg>
+                </button>
             </div>
+
             <div style="text-align: center; color: #777; padding-top: 10px; margin-bottom: 50px;">
                 Copyright 2026 • All rights reserved
             </div>
@@ -531,6 +591,15 @@
                 }
             });
         });
+
+        // Highlight contact details in sidebar when arrow is clicked
+        function focusContact() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.add('highlight-sidebar');
+            setTimeout(() => {
+                sidebar.classList.remove('highlight-sidebar');
+            }, 2500);
+        }
     </script>
 </body>
 </html>
