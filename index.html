@@ -56,21 +56,15 @@
             margin-bottom: 20px;
         }
 
-        .skeleton-avatar {
-            width: 75px;
-            height: 75px;
-            border-radius: 12px;
-        }
-
         .loading-placeholder-container {
             transition: opacity 0.4s ease, visibility 0.4s ease;
         }
 
-        /* --- DYNAMIC HERO IMAGE SEQUENCE --- */
+        /* --- INCREASED HERO BANNER HEIGHT --- */
         .hero-slideshow-container {
             position: relative;
             width: 100%;
-            height: 320px;
+            height: 480px; /* Increased height */
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0px 8px 25px rgba(0,0,0,0.08);
@@ -193,9 +187,10 @@
             border-right: 1px solid #eaeaea;
             box-shadow: 4px 0px 12px rgba(0,0,0,0.03);
             z-index: 99999;
-            padding: 50px 30px;
+            padding: 35px 25px;
             box-sizing: border-box;
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            overflow-y: auto;
         }
 
         .sidebar.highlight-sidebar {
@@ -203,20 +198,47 @@
             box-shadow: 6px 0px 20px rgba(0, 123, 255, 0.25);
         }
 
+        .sidebar-profile {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .sidebar-profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .sidebar-profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .sidebar-profile-text {
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+
         .sidebar-title {
             font-family: 'Inter', sans-serif;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .sidebar-item {
             color: #2b2b2b;
-            margin-top: 14px;
-            margin-bottom: 14px;
+            margin-top: 12px;
+            margin-bottom: 12px;
             word-break: break-word;
             font-size: 0.85rem;
             font-weight: 600;
@@ -427,7 +449,7 @@
                 font-size: 11px;
             }
             .hero-slideshow-container {
-                height: 220px;
+                height: 320px;
             }
         }
     </style>
@@ -446,8 +468,19 @@
         <a href="#research" class="nav-link">RESEARCH</a>
     </div>
 
-    <!-- Fixed Sidebar Column -->
+    <!-- Fixed Sidebar Column with Profile Picture & Message -->
     <div class="sidebar" id="sidebar">
+        <div class="sidebar-profile">
+            <a href="https://www.notion.so/About-Me-331099428a098011aee8fff1340a985e?source=copy_link" target="_blank">
+                <img src="https://github.com/ranithric-cyber/image-3/blob/aacc3a49cd0fb2a3be923754be31f12e688e741a/2410223.jpg?raw=true" 
+                     class="sidebar-profile-img" 
+                     alt="Profile">
+            </a>
+            <p class="sidebar-profile-text">
+                <i>Want to get to know more about me? Click me!</i>
+            </p>
+        </div>
+
         <div class="sidebar-title">Get in Touch</div>
         <div class="sidebar-item">🔗 ranithric@gmail.com</div>
         <div class="sidebar-item">🔗 <a href="https://www.linkedin.com/in/ranithri-hewasiliyan-10036117b" target="_blank">LinkedIn</a></div>
@@ -462,14 +495,13 @@
             <div id="hero-loading" class="loading-placeholder-container">
                 <div class="skeleton skeleton-title"></div>
                 <div class="skeleton skeleton-subtitle"></div>
-                <div class="skeleton skeleton-avatar"></div>
             </div>
 
             <div id="hero-content" style="display: none;">
                 <h1 class="title-text">RANITHRI HEWASILIYAN | Portfolio</h1>
                 <p class="subtitle-text">Everything about Data</p>
 
-                <!-- Dynamic Visual Sequence Banner -->
+                <!-- Dynamic Visual Sequence Banner (Height: 480px) -->
                 <div class="hero-slideshow-container">
                     <div class="slide-dots">
                         <span class="dot active"></span>
@@ -481,45 +513,34 @@
                     <!-- Slide 1: Visualization -->
                     <div class="hero-slide active" style="background-image: url('https://github.com/ranithric-cyber/image-3/blob/9ddd90849a358d7600abd0c8d45bfa7cd01debcc/photo-1704340142770-b52988e5b6eb.jpg?raw=true');">
                         <div class="slide-caption">
-                            <span>Interactive Visualizations & Dashboards</span>
-                            <span style="font-size: 1rem; opacity: 0.8;">01 / 04</span>
+                            <span>📊 Interactive Visualizations & Dashboards</span>
+                            <span style="font-size: 0.75rem; opacity: 0.8;">01 / 04</span>
                         </div>
                     </div>
 
                     <!-- Slide 2: Machine Learning -->
                     <div class="hero-slide" style="background-image: url('https://github.com/ranithric-cyber/image-3/blob/ca89bcc14c85d12238b2a21b59a5950fd50e6439/Behind%20the%20scenes%20of%20RFM%20analysis.jpg?raw=true');">
                         <div class="slide-caption">
-                            <span>Machine Learning & Predictive Models</span>
-                            <span style="font-size: 1rem; opacity: 0.8;">02 / 04</span>
+                            <span>🤖 Machine Learning & Predictive Models</span>
+                            <span style="font-size: 0.75rem; opacity: 0.8;">02 / 04</span>
                         </div>
                     </div>
 
                     <!-- Slide 3: Research -->
                     <div class="hero-slide" style="background-image: url('https://github.com/ranithric-cyber/image-2/blob/4f5d86c176388eb8811e762398f3a8ffccf3d797/Development%20of%20a%20Machine%20Learning%20Time%20Series%20Model%20for%20Predicting%20Tea%20Crop%20Production%20Based%20on%20Monsoon%20Rainfall%20in%20Central%20Highlands%2C%20Sri%20Lanka.jpg?raw=true');">
                         <div class="slide-caption">
-                            <span>Academic & Applied Data Research</span>
-                            <span style="font-size: 1rem; opacity: 0.8;">03 / 04</span>
+                            <span>🔬 Academic & Applied Data Research</span>
+                            <span style="font-size: 0.75rem; opacity: 0.8;">03 / 04</span>
                         </div>
                     </div>
 
                     <!-- Slide 4: Data Theory -->
                     <div class="hero-slide" style="background-image: url('https://github.com/ranithric-cyber/image-1/blob/d4b3583844173ae6758b12c90466abc9b6e93adf/The%20Psychology%20of%20Data%20Visualization.jpg?raw=true');">
                         <div class="slide-caption">
-                            <span>Data Psychology & Storytelling</span>
-                            <span style="font-size: 1rem; opacity: 0.8;">04 / 04</span>
+                            <span>🧠 Data Psychology & Storytelling</span>
+                            <span style="font-size: 0.75rem; opacity: 0.8;">04 / 04</span>
                         </div>
                     </div>
-                </div>
-
-                <div style="text-align: left; margin-top: 15px;">
-                    <a href="https://www.notion.so/About-Me-331099428a098011aee8fff1340a985e?source=copy_link" target="_blank">
-                        <img src="https://github.com/ranithric-cyber/image-3/blob/aacc3a49cd0fb2a3be923754be31f12e688e741a/2410223.jpg?raw=true" 
-                             style="width: 100%; max-width: 75px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1);" 
-                             alt="Profile">
-                    </a>
-                    <p style="font-size: 0.9rem; color: #666; margin-top: 5px; margin-bottom: 30px;">
-                        <i>Want to get to know more about me? Click me!</i>
-                    </p>
                 </div>
             </div>
 
