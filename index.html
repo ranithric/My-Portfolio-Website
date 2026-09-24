@@ -62,20 +62,75 @@
             border-radius: 12px;
         }
 
-        .skeleton-iframe {
-            width: 100%;
-            height: 500px;
-            margin-top: 20px;
-        }
-
         .loading-placeholder-container {
             transition: opacity 0.4s ease, visibility 0.4s ease;
         }
 
-        .loaded .loading-placeholder-container {
+        /* --- DYNAMIC HERO IMAGE SEQUENCE --- */
+        .hero-slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.08);
+            margin-top: 20px;
+            margin-bottom: 25px;
+            background-color: #111;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             opacity: 0;
-            visibility: hidden;
-            display: none;
+            transition: opacity 1.2s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+            color: #ffffff;
+            padding: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .slide-dots {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #ffffff;
+            transform: scale(1.2);
         }
 
         /* --- FLOATING NAVBAR WITH LINE INDICATOR --- */
@@ -371,6 +426,9 @@
                 gap: 15px;
                 font-size: 11px;
             }
+            .hero-slideshow-container {
+                height: 220px;
+            }
         }
     </style>
 </head>
@@ -410,6 +468,48 @@
             <div id="hero-content" style="display: none;">
                 <h1 class="title-text">RANITHRI HEWASILIYAN | Portfolio</h1>
                 <p class="subtitle-text">Everything about Data</p>
+
+                <!-- Dynamic Visual Sequence Banner -->
+                <div class="hero-slideshow-container">
+                    <div class="slide-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+
+                    <!-- Slide 1: Visualization -->
+                    <div class="hero-slide active" style="background-image: url('https://github.com/ranithric-cyber/image-3/blob/9ddd90849a358d7600abd0c8d45bfa7cd01debcc/photo-1704340142770-b52988e5b6eb.jpg?raw=true');">
+                        <div class="slide-caption">
+                            <span>📊 Interactive Visualizations & Dashboards</span>
+                            <span style="font-size: 0.75rem; opacity: 0.8;">01 / 04</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Machine Learning -->
+                    <div class="hero-slide" style="background-image: url('https://github.com/ranithric-cyber/image-3/blob/ca89bcc14c85d12238b2a21b59a5950fd50e6439/Behind%20the%20scenes%20of%20RFM%20analysis.jpg?raw=true');">
+                        <div class="slide-caption">
+                            <span>🤖 Machine Learning & Predictive Models</span>
+                            <span style="font-size: 0.75rem; opacity: 0.8;">02 / 04</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Research -->
+                    <div class="hero-slide" style="background-image: url('https://github.com/ranithric-cyber/image-2/blob/4f5d86c176388eb8811e762398f3a8ffccf3d797/Development%20of%20a%20Machine%20Learning%20Time%20Series%20Model%20for%20Predicting%20Tea%20Crop%20Production%20Based%20on%20Monsoon%20Rainfall%20in%20Central%20Highlands%2C%20Sri%20Lanka.jpg?raw=true');">
+                        <div class="slide-caption">
+                            <span>🔬 Academic & Applied Data Research</span>
+                            <span style="font-size: 0.75rem; opacity: 0.8;">03 / 04</span>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Data Theory -->
+                    <div class="hero-slide" style="background-image: url('https://github.com/ranithric-cyber/image-1/blob/d4b3583844173ae6758b12c90466abc9b6e93adf/The%20Psychology%20of%20Data%20Visualization.jpg?raw=true');">
+                        <div class="slide-caption">
+                            <span>🧠 Data Psychology & Storytelling</span>
+                            <span style="font-size: 0.75rem; opacity: 0.8;">04 / 04</span>
+                        </div>
+                    </div>
+                </div>
 
                 <div style="text-align: left; margin-top: 15px;">
                     <a href="https://www.notion.so/About-Me-331099428a098011aee8fff1340a985e?source=copy_link" target="_blank">
@@ -596,7 +696,7 @@
                 </div>
             </div>
 
-            <!-- Exact Section Solid Line added here -->
+            <!-- Exact Section Solid Line -->
             <hr style="border: none; border-top: 1.5px solid #000000; margin: 50px 0;">
             
             <hr class="tight-hr">
@@ -614,22 +714,37 @@
 
             <div style="text-align: center; color: #777; padding-top: 10px; margin-bottom: 50px; font-size: 0.85rem;">
                 © 2026 Ranithri Hewasiliyan. All Rights Reserved.
-                
                 <hr class="tight-hr">
-                
             </div>
         </div>
     </div>
     
     <!-- Scripts -->
     <script>
-        // Dismiss loading placeholders once elements load or after 600ms
+        // Dismiss loading placeholders
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 document.getElementById('hero-loading').style.display = 'none';
                 document.getElementById('hero-content').style.display = 'block';
             }, 600);
         });
+
+        // Hero Slideshow Controller
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function rotateSlides() {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        setInterval(rotateSlides, 3200); // Rotates every 3.2 seconds
 
         // Navigation Line Indicator Active State Script
         const navLinks = document.querySelectorAll('.nav-link');
