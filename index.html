@@ -60,11 +60,11 @@
             transition: opacity 0.4s ease, visibility 0.4s ease;
         }
 
-        /* --- INCREASED HERO BANNER HEIGHT --- */
+        /* --- BALANCED HERO BANNER HEIGHT --- */
         .hero-slideshow-container {
             position: relative;
             width: 100%;
-            height: 480px; /* Increased height */
+            height: 400px; /* Reduced from 480px */
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0px 8px 25px rgba(0,0,0,0.08);
@@ -205,22 +205,24 @@
             border-bottom: 1px solid #eaeaea;
         }
 
+        /* --- UNCOMPRESSED PROFILE IMAGE FIT --- */
         .sidebar-profile-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 12px;
+            width: 110px;
+            height: 110px;
+            object-fit: cover; /* Prevents distortion/compression */
+            border-radius: 14px;
             box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.2s ease;
         }
 
         .sidebar-profile-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         .sidebar-profile-text {
             font-size: 0.82rem;
             color: #666;
-            margin-top: 10px;
+            margin-top: 12px;
             margin-bottom: 0;
             line-height: 1.4;
         }
@@ -449,7 +451,7 @@
                 font-size: 11px;
             }
             .hero-slideshow-container {
-                height: 320px;
+                height: 260px;
             }
         }
     </style>
@@ -501,7 +503,7 @@
                 <h1 class="title-text">RANITHRI HEWASILIYAN | Portfolio</h1>
                 <p class="subtitle-text">Everything about Data</p>
 
-                <!-- Dynamic Visual Sequence Banner (Height: 480px) -->
+                <!-- Dynamic Visual Sequence Banner (Height: 400px) -->
                 <div class="hero-slideshow-container">
                     <div class="slide-dots">
                         <span class="dot active"></span>
