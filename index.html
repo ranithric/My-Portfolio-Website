@@ -29,6 +29,55 @@
             overflow-x: hidden;
         }
 
+        /* --- SKELETON PLACEHOLDER STYLES --- */
+        .skeleton {
+            background: #e0e0e0;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 6px;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .skeleton-title {
+            height: 35px;
+            width: 70%;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .skeleton-subtitle {
+            height: 18px;
+            width: 35%;
+            margin-bottom: 20px;
+        }
+
+        .skeleton-avatar {
+            width: 75px;
+            height: 75px;
+            border-radius: 12px;
+        }
+
+        .skeleton-iframe {
+            width: 100%;
+            height: 500px;
+            margin-top: 20px;
+        }
+
+        .loading-placeholder-container {
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .loaded .loading-placeholder-container {
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+
         /* --- FLOATING NAVBAR WITH LINE INDICATOR --- */
         .super-sticky-nav {
             position: fixed;
@@ -94,7 +143,6 @@
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        /* Highlight animation when arrow is clicked */
         .sidebar.highlight-sidebar {
             border-right: 2px solid #007bff;
             box-shadow: 6px 0px 20px rgba(0, 123, 255, 0.25);
@@ -110,16 +158,15 @@
             margin-bottom: 20px;
         }
 
-       .sidebar-item {
+        .sidebar-item {
             color: #2b2b2b;
             margin-top: 14px;
             margin-bottom: 14px;
             word-break: break-word;
-            font-size: 1rem; /* Set to 0.85rem if you want the smaller font size */
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
-        /* Add this to remove underlines and keep link colors matching */
         .sidebar-item a {
             text-decoration: none;
             color: inherit;
@@ -127,8 +174,9 @@
         }
 
         .sidebar-item a:hover {
-            color: #007bff; /* Optional: subtle hover color */
+            color: #007bff;
         }
+
         /* --- PAGE LAYOUT & SIDEBAR PADDING --- */
         .container {
             max-width: 950px;
@@ -352,19 +400,27 @@
     <div class="container" id="mainContainer">
         <div class="main-content">
 
-            <!-- Hero Section -->
-            <h1 class="title-text">RANITHRI HEWASILIYAN | Portfolio</h1>
-            <p class="subtitle-text">Everything about Data</p>
+            <!-- Hero Section with Skeleton Placeholder -->
+            <div id="hero-loading" class="loading-placeholder-container">
+                <div class="skeleton skeleton-title"></div>
+                <div class="skeleton skeleton-subtitle"></div>
+                <div class="skeleton skeleton-avatar"></div>
+            </div>
 
-            <div style="text-align: left; margin-top: 15px;">
-                <a href="https://www.notion.so/About-Me-331099428a098011aee8fff1340a985e?source=copy_link" target="_blank">
-                    <img src="https://github.com/ranithric-cyber/image-3/blob/aacc3a49cd0fb2a3be923754be31f12e688e741a/2410223.jpg?raw=true" 
-                         style="width: 100%; max-width: 75px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1);" 
-                         alt="Profile">
-                </a>
-                <p style="font-size: 0.9rem; color: #666; margin-top: 5px; margin-bottom: 30px;">
-                    <i>Want to get to know more about me? Click me!</i>
-                </p>
+            <div id="hero-content" style="display: none;">
+                <h1 class="title-text">RANITHRI HEWASILIYAN | Portfolio</h1>
+                <p class="subtitle-text">Everything about Data</p>
+
+                <div style="text-align: left; margin-top: 15px;">
+                    <a href="https://www.notion.so/About-Me-331099428a098011aee8fff1340a985e?source=copy_link" target="_blank">
+                        <img src="https://github.com/ranithric-cyber/image-3/blob/aacc3a49cd0fb2a3be923754be31f12e688e741a/2410223.jpg?raw=true" 
+                             style="width: 100%; max-width: 75px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.1);" 
+                             alt="Profile">
+                    </a>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 5px; margin-bottom: 30px;">
+                        <i>Want to get to know more about me? Click me!</i>
+                    </p>
+                </div>
             </div>
 
             <hr class="tight-hr"> 
@@ -549,11 +605,8 @@
             <div class="reach-out-container">
                 <div style="font-size: 1rem;">Thanks for reading and feel free to reach out to me!</div>
                 <button class="curly-arrow-btn" onclick="focusContact()" title="Click to locate contact details">
-                    <!-- Redrawn loop-de-loop pointing down-left -->
                     <svg class="curly-arrow-svg" viewBox="0 0 100 80">
-                        <!-- Swirly spiral path -->
                         <path d="M 75,10 C 85,35 60,50 45,35 C 30,20 50,5 60,25 C 70,50 35,60 15,50" />
-                        <!-- Clearly pointing arrowhead towards bottom-left sidebar -->
                         <path d="M 28,42 L 15,50 L 22,63" />
                     </svg>
                 </button>
@@ -570,6 +623,14 @@
     
     <!-- Scripts -->
     <script>
+        // Dismiss loading placeholders once elements load or after 600ms
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('hero-loading').style.display = 'none';
+                document.getElementById('hero-content').style.display = 'block';
+            }, 600);
+        });
+
         // Navigation Line Indicator Active State Script
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section');
