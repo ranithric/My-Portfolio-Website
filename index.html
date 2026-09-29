@@ -89,28 +89,17 @@
             opacity: 1;
         }
 
-        /* Dark overlay gradient to make white text pop over images */
+        /* Gradient overlay for contrast */
         .slide-overlay-content {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.25) 100%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-end;
             padding: 25px;
             box-sizing: border-box;
             z-index: 2;
-        }
-
-        .slide-caption-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #ffffff;
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
         }
 
         /* Statement placed inside banner with white text */
@@ -255,12 +244,11 @@
             border-bottom: 1px solid #eaeaea;
         }
 
-        /* --- FULL HEAD CAPTURED (FIXED CROPPING) --- */
         .sidebar-profile-img {
             width: 110px;
             height: 125px;
             object-fit: cover;
-            object-position: top; /* Prevents head cropping */
+            object-position: top;
             border-radius: 14px;
             box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.2s ease;
@@ -560,7 +548,7 @@
                 <h1 class="title-text">RANITHRI HEWASILIYAN | Portfolio</h1>
                 <p class="subtitle-text">Everything about Data</p>
 
-                <!-- Dynamic Visual Sequence Banner with White Statement Inside -->
+                <!-- Dynamic Visual Sequence Banner -->
                 <div class="hero-slideshow-container">
                     <div class="slide-dots">
                         <span class="dot active"></span>
@@ -581,13 +569,8 @@
                     <!-- Slide 4: Data Theory -->
                     <div class="hero-slide" style="background-image: url('https://github.com/ranithric-cyber/image-1/blob/d4b3583844173ae6758b12c90466abc9b6e93adf/The%20Psychology%20of%20Data%20Visualization.jpg?raw=true');"></div>
 
-                    <!-- Banner Content Overlay -->
+                    <!-- Banner Content Overlay (Without Top Text Bar) -->
                     <div class="slide-overlay-content">
-                        <div class="slide-caption-top">
-                            <span id="slide-title-text">📊 Interactive Visualizations & Dashboards</span>
-                            <span id="slide-number-text" style="font-size: 0.75rem; opacity: 0.85;">01 / 04</span>
-                        </div>
-
                         <!-- Statement Section Placed Inside the Banner -->
                         <div class="hero-banner-statement">
                             <h3>"The goal is to turn data into information, and information into insights."</h3>
@@ -793,19 +776,10 @@
             }, 600);
         });
 
-        // Hero Slideshow Data & Controller
-        const slideMetadata = [
-            { title: "📊 Interactive Visualizations & Dashboards", num: "01 / 04" },
-            { title: "🤖 Machine Learning & Predictive Models", num: "02 / 04" },
-            { title: "🔬 Academic & Applied Data Research", num: "03 / 04" },
-            { title: "🧠 Data Psychology & Storytelling", num: "04 / 04" }
-        ];
-
+        // Hero Slideshow Controller
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide');
         const dots = document.querySelectorAll('.dot');
-        const titleElem = document.getElementById('slide-title-text');
-        const numElem = document.getElementById('slide-number-text');
 
         function rotateSlides() {
             slides[currentSlide].classList.remove('active');
@@ -815,11 +789,6 @@
             
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.add('active');
-
-            if(titleElem && numElem) {
-                titleElem.textContent = slideMetadata[currentSlide].title;
-                numElem.textContent = slideMetadata[currentSlide].num;
-            }
         }
 
         setInterval(rotateSlides, 3200); // Rotates every 3.2 seconds
